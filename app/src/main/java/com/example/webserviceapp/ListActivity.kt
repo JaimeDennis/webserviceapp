@@ -50,23 +50,25 @@ class ListActivity : android.app.ListActivity(), Response.Listener<JSONObject>, 
     }
 
     private fun consultarTodosWebService() {
-        val url = "$serverip/wsConsultarTodos.php?id_movil=${Device.getSecureId(this)}"
+        val url = "$serverip/wsConsultarTodos.php"
         jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null, this, this)
         request.add(jsonObjectRequest)
     }
 
     override fun onErrorResponse(error: VolleyError) {
         // Manejo del error
+        Toast.makeText(context, "Error al consultar los contactos", Toast.LENGTH_SHORT).show()
     }
 
     override fun onResponse(response: JSONObject) {
-        var contacto: Contacts?
-        val json: JSONArray = response.optJSONArray("contacts") ?: return
+        listaContactos.clear() // Limpiar la lista antes de agregar nuevos datos
 
         try {
-            for (i in 0 until json.length()) {
-                contacto = Contacts().apply {
-                    val jsonObject: JSONObject = json.getJSONObject(i)
+            val jsonArray: JSONArray = response.optJSONArray("data") ?: return
+
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject: JSONObject = jsonArray.getJSONObject(i)
+                val contacto = Contacts().apply {
                     id = jsonObject.optInt("id")
                     name = jsonObject.optString("name")
                     phoneNumber1 = jsonObject.optString("phone_number1")
@@ -78,10 +80,12 @@ class ListActivity : android.app.ListActivity(), Response.Listener<JSONObject>, 
                 }
                 listaContactos.add(contacto)
             }
+
             val adapter = MyArrayAdapter(context, R.layout.layout_contact, listaContactos)
             listAdapter = adapter
         } catch (e: JSONException) {
             e.printStackTrace()
+            Toast.makeText(context, "Error al procesar la respuesta", Toast.LENGTH_SHORT).show()
         }
     }
 

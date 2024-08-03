@@ -1,4 +1,4 @@
-Android<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,7 +24,7 @@ Android<?xml version="1.0" encoding="utf-8"?>
             android:layout_height="match_parent"
             android:stretchColumns="*"
             android:padding="20dp"
-            tools:context="${relativePackage}.${activityClass}" >
+            tools:context="${relativePackage}.${activityClass}">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,7 +36,7 @@ Android<?xml version="1.0" encoding="utf-8"?>
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
-                android:inputType="textPersonName" >
+                android:inputType="textPersonName">
                 <requestFocus />
             </EditText>
             <TableRow>
@@ -55,8 +55,7 @@ Android<?xml version="1.0" encoding="utf-8"?>
                     android:layout_width="144dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="phone"
-                    />
+                    android:inputType="phone" />
                 <EditText
                     android:id="@+id/txtTelefono2"
                     android:layout_width="144dp"
@@ -92,7 +91,7 @@ Android<?xml version="1.0" encoding="utf-8"?>
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/favorite" />
-            <TableRow >
+            <TableRow>
                 <Button
                     android:id="@+id/btnLimpiar"
                     android:layout_width="wrap_content"
