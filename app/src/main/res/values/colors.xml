@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="phpmyadmin_blue">#0094FF</color>
+    <color name="phpmyadmin_light_gray">#CBD1DE</color>
 </resources>
