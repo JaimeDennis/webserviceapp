@@ -34,7 +34,7 @@ class ListActivity : android.app.ListActivity(), Response.Listener<JSONObject>, 
     private lateinit var request: RequestQueue
     private lateinit var jsonObjectRequest: JsonObjectRequest
     private var listaContactos: ArrayList<Contacts> = ArrayList()
-    private val serverip = "http://192.168.1.73/WebService/"
+    private val serverip = "http://3.132.72.238/WebService/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,8 +71,8 @@ class ListActivity : android.app.ListActivity(), Response.Listener<JSONObject>, 
                 val contacto = Contacts().apply {
                     id = jsonObject.optInt("id")
                     name = jsonObject.optString("name")
-                    phoneNumber1 = jsonObject.optString("phone_number1")
-                    phoneNumber2 = jsonObject.optString("phone_number2")
+                    phoneNumber1 = jsonObject.optString("phoneNumber1")
+                    phoneNumber2 = jsonObject.optString("phoneNumber2")
                     address = jsonObject.optString("address")
                     notes = jsonObject.optString("notes")
                     is_favorite = jsonObject.optInt("is_favorite")
